@@ -76,6 +76,58 @@ paths:
       responses:
         "200":
           description: OK
+  "/student/{id}":
+    delete:
+      x-skaffolder-id: 61d1e51f7a739847d5d02d3b
+      x-skaffolder-name: delete
+      x-skaffolder-id-resource: 61d1e4077a739847d5d02d35
+      x-skaffolder-resource: Student
+      x-skaffolder-crudAction: delete
+      x-skaffolder-crudType: 
+      x-skaffolder-description: CRUD ACTION delete
+      x-skaffolder-returnDesc: 
+      x-skaffolder-returnType: 
+      x-skaffolder-url: /{id}
+      x-skaffolder-roles: []
+      summary: CRUD ACTION delete
+      tags:
+        - Student
+      parameters:
+        - name: id
+          x-skaffolder-type: ObjectId
+          in: path
+          description: Id
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+  /student:
+    get:
+      x-skaffolder-id: 61d1e51f7a739847d5d02d3c
+      x-skaffolder-name: list
+      x-skaffolder-id-resource: 61d1e4077a739847d5d02d35
+      x-skaffolder-resource: Student
+      x-skaffolder-crudAction: list
+      x-skaffolder-crudType: 
+      x-skaffolder-description: CRUD ACTION list
+      x-skaffolder-returnDesc: 
+      x-skaffolder-returnType: 
+      x-skaffolder-url: /
+      x-skaffolder-roles: []
+      summary: CRUD ACTION list
+      tags:
+        - Student
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Student"
   "/user/{id}/changePassword":
     post:
       x-skaffolder-id: 61d1e1ce7a739847d5d02ce5
@@ -383,6 +435,17 @@ components:
       x-skaffolder-template: 
       x-skaffolder-resource: 
       x-skaffolder-services: 
+      x-skaffolder-nesteds: 
+      x-skaffolder-links: 
+      x-skaffolder-roles: []
+    - x-skaffolder-id: 61d1e5247a739847d5d02d3e
+      x-skaffolder-name: StudentList
+      x-skaffolder-url: /students
+      x-skaffolder-template: List_Crud
+      x-skaffolder-resource: 61d1e4077a739847d5d02d35
+      x-skaffolder-services:
+        - 61d1e51f7a739847d5d02d3b
+        - 61d1e51f7a739847d5d02d3c
       x-skaffolder-nesteds: 
       x-skaffolder-links: 
       x-skaffolder-roles: []

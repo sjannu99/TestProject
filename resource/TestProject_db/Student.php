@@ -58,6 +58,25 @@
 
 //CRUD METHODS
 
+	
+//CRUD - REMOVE
+
+$app->delete('/student/:id',	function ($id) use ($app){
+	
+	$params = array (
+		'id'	=> $id,
+	);
+
+	makeQuery("DELETE FROM student WHERE _id = :id LIMIT 1", $params);
+
+});
+	
+//CRUD - GET LIST
+
+$app->get('/student',	function () use ($app){
+	makeQuery("SELECT * FROM student");
+});
+
 
 
 /*
